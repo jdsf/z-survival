@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerBehaviorScript : MonoBehaviour {
@@ -6,7 +8,7 @@ public class PlayerBehaviorScript : MonoBehaviour {
     float dirX;
 
     // Variable for move speed 
-    public float moveSpeed = 8f;
+    public float moveSpeed = 8;
 
     // Rigidbody2D reference
     Rigidbody2D rb;
@@ -22,12 +24,9 @@ public class PlayerBehaviorScript : MonoBehaviour {
     {
         // Get dirX when button is pressed
         dirX = CrossPlatformInputManager.GetAxisRaw("Horizontal");
-    }
 
-    void FixedUpdate()
-    {
         // Pass velocity to Rigidbody2D
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(dirX * moveSpeed, 0);
     }
 }
 
